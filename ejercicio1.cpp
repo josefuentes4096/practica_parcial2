@@ -29,13 +29,28 @@ struct ALUMNO
 void quienesPrograman(ALUMNO vectorProgramacion[], int nProg, ALUMNO vectorLaboratorio[], int nLab, ALUMNO vectorQuienesPrograman[], int nTotal)
 {
     int n = 0;
-    for(int i = 0; i < nProg; i++)
-    {
-        for(int j = 0; j < nLab; j++)
-        {
+    //for(int i = 0; i < nProg; i++)
+    //{
+        //for(int j = 0; j < nLab; j++)
+        //{
             //vectorQuienesPrograman[n++] = algo;
+        //}
+    //}
+
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    while(i < nProg && j < nLab)
+    {
+        if(vectorProgramacion[i].legajo < vectorLaboratorio[j].legajo)
+        {
+            vectorQuienesPrograman[k++] = vectorProgramacion[i++];
         }
-    }
+        else
+        {
+            vectorQuienesPrograman[k++] = vectorProgramacion[j++];
+        }
+    };
 }
 
 int main()
@@ -46,23 +61,23 @@ int main()
     ALUMNO total[TAMANIO_MAXIMO];
 
     int i = 0;
-    prog[i].legajo = 3423124;
+    prog[i].legajo = 100124;
     prog[i].nombre = "Juan Perez";
     i++;
-    prog[i].legajo = 489789;
+    prog[i].legajo = 101789;
     prog[i].nombre = "Juan Gomez";
     i++;
-    prog[i].legajo = 4598789;
+    prog[i].legajo = 1028789;
     prog[i].nombre = "Juan Gonzalez";
 
     i = 0;
-    lab[i].legajo = 3423124;
+    lab[i].legajo = 100124;
     lab[i].nombre = "Juan Perez";
     i++;
-    lab[i].legajo = 4687989;
+    lab[i].legajo = 101989;
     lab[i].nombre = "Tito Fernandez";
     i++;
-    lab[i].legajo = 4598789;
+    lab[i].legajo = 1028789;
     lab[i].nombre = "Juan Gonzalez";
 
     quienesPrograman(prog, 3, lab, 3, total, 3);
