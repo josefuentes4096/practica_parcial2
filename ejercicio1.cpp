@@ -26,17 +26,8 @@ struct ALUMNO
     long legajo;
 };
 
-void quienesPrograman(ALUMNO vectorProgramacion[], int nProg, ALUMNO vectorLaboratorio[], int nLab, ALUMNO vectorQuienesPrograman[], int nTotal)
+void quienesPrograman(ALUMNO vectorProgramacion[], int nProg, ALUMNO vectorLaboratorio[], int nLab, ALUMNO vectorQuienesPrograman[], int& nTotal)
 {
-    int n = 0;
-    //for(int i = 0; i < nProg; i++)
-    //{
-        //for(int j = 0; j < nLab; j++)
-        //{
-            //vectorQuienesPrograman[n++] = algo;
-        //}
-    //}
-
     int i = 0;
     int j = 0;
     int k = 0;
@@ -50,7 +41,8 @@ void quienesPrograman(ALUMNO vectorProgramacion[], int nProg, ALUMNO vectorLabor
         {
             vectorQuienesPrograman[k++] = vectorProgramacion[j++];
         }
-    };
+    }
+    nTotal = k;
 }
 
 int main()
@@ -80,9 +72,11 @@ int main()
     lab[i].legajo = 1028789;
     lab[i].nombre = "Juan Gonzalez";
 
-    quienesPrograman(prog, 3, lab, 3, total, 3);
+    int ntotal;
 
-    for(int i = 0; i < 6; i++)
+    quienesPrograman(prog, 3, lab, 3, total, ntotal);
+
+    for(int i = 0; i < ntotal; i++)
     {
         cout << total[i].legajo << total[i].nombre << endl;
     }
