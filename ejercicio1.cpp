@@ -26,6 +26,13 @@ struct ALUMNO
     long legajo;
 };
 
+
+
+/**
+ * vectorProgramacion:   3    5    8   7 
+ * vectorLaboratorio:    3    8    7       11
+ */
+
 void quienesPrograman(ALUMNO vectorProgramacion[], int nProg, ALUMNO vectorLaboratorio[], int nLab, ALUMNO vectorQuienesPrograman[], int& nTotal)
 {
     int i = 0;
@@ -37,10 +44,26 @@ void quienesPrograman(ALUMNO vectorProgramacion[], int nProg, ALUMNO vectorLabor
         {
             vectorQuienesPrograman[k++] = vectorProgramacion[i++];
         }
+        else if(vectorProgramacion[i].legajo > vectorLaboratorio[j].legajo)
+        {
+            vectorQuienesPrograman[k++] = vectorLaboratorio[j++];
+        }
         else
         {
-            vectorQuienesPrograman[k++] = vectorProgramacion[j++];
+            vectorQuienesPrograman[k++] = vectorProgramacion[i];
+            i++;
+            j++;
         }
+    }
+
+    while(i < nProg)
+    {
+        vectorQuienesPrograman[k++] = vectorProgramacion[i++];
+    }
+
+    while(j < nLab)
+    {
+        vectorQuienesPrograman[k++] = vectorLaboratorio[j++];
     }
     nTotal = k;
 }
