@@ -7,7 +7,7 @@
  *     • Email (texto)
  *     • Telefono (entero)
  * 
- * Realizar el diagrama del procedimiento o función que reciba el vector de quienes programan y el vector 
+ * Realizar el codigo del procedimiento o función que reciba el vector de quienes programan y el vector 
  * de datos de alumnos e imprima el listado ordenado por apellido y nombre:
  * APELLIDO Y NOMBRE		  LEGAJO		EMAIL		TELEFONO
  *  
@@ -16,6 +16,24 @@
 #include <iostream>
 
 using namespace std;
+
+struct ALUMNO 
+{
+    string nombre;
+    long legajo;
+};
+
+struct CONTACTO
+{
+    long legajo;
+    string nombre;
+    string email;
+    long telefono;
+};
+
+void informacionContacto(ALUMNO vectorQuienesPrograman[], int& nTotal)
+{
+}
 
 int main()
 {
